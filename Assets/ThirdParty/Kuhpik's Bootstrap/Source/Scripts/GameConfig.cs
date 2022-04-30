@@ -9,10 +9,5 @@ namespace Kuhpik
         // Example
         // [SerializeField] [BoxGroup("Moving")] private float moveSpeed;
         // public float MoveSpeed => moveSpeed;
-
-        [BoxGroup("Movement")] [SerializeField] private float maxMoveSpeed = 10;
-        [BoxGroup("Movement")] [SerializeField] private float additionalRunSpeed = 15;
-        [BoxGroup("Movement")] [SerializeField] private float turnSpeed = 90;
-        
     }
 }
