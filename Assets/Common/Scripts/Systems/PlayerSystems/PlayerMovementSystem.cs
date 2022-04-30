@@ -92,12 +92,12 @@ namespace Common.Scripts.Systems
                 currentSpeedModifier*currentRunModifier*Time.fixedDeltaTime + Vector3.up * velocity.y,
                 ref smoothVelocity,
                 0.4f);
+            
+            /*var horizontalVelocity = new Vector3(velocity.x, 0, velocity.z);
+            if(horizontalVelocity.magnitude < movementConfig.MaxMoveSpeed)
+                game.PlayerEntity.Rigidbody.AddForce(game.PlayerEntity.transform.forward*movementConfig.MaxMoveSpeed*
+                    currentSpeedModifier*currentRunModifier*Time.fixedDeltaTime, ForceMode.Force);*/
+        }
 
-/*var horizontalVelocity = new Vector3(velocity.x, 0, velocity.z);
-if(horizontalVelocity.magnitude < movementConfig.MaxMoveSpeed)
-    game.PlayerEntity.Rigidbody.AddForce(game.PlayerEntity.transform.forward*movementConfig.MaxMoveSpeed*
-        currentSpeedModifier*currentRunModifier*Time.fixedDeltaTime, ForceMode.Force);*/
-}
-
-}
+    }
 }
