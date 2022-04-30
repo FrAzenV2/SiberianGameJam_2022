@@ -14,6 +14,5 @@ namespace Kuhpik
         [BoxGroup("Movement")] [SerializeField] private float additionalRunSpeed = 15;
         [BoxGroup("Movement")] [SerializeField] private float turnSpeed = 90;
         
-        
     }
 }

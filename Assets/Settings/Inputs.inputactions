@@ -1,5 +1,5 @@
 {
-    "name": "SiberianGameJam_2022",
+    "name": "Inputs",
     "maps": [
         {
             "name": "Game",
@@ -29,7 +29,7 @@
                     "id": "3d224ebb-1379-4665-a89a-e8ca444aef06",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
