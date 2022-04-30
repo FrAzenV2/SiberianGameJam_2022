@@ -75,9 +75,9 @@ namespace Common.Scripts.Systems
             if (game.CurrentMovementInput == Vector3.zero)
             {
                 var newVelocity = game.PlayerEntity.Rigidbody.velocity;
-                newVelocity = Vector3.Lerp(Vector3.zero, newVelocity, 0.3f * Time.deltaTime);
+                newVelocity = Vector3.Lerp(Vector3.zero, newVelocity, 0.9f);
                 
-                if (newVelocity.magnitude < 5f) newVelocity = Vector3.zero;
+                if (newVelocity.magnitude < 2f) newVelocity = Vector3.zero;
                 
                 newVelocity.y = game.PlayerEntity.Rigidbody.velocity.y;
 
@@ -89,10 +89,15 @@ namespace Common.Scripts.Systems
             var velocity = game.PlayerEntity.Rigidbody.velocity;
             game.PlayerEntity.Rigidbody.velocity = Vector3.SmoothDamp(velocity,
                 game.PlayerEntity.transform.forward*movementConfig.MaxMoveSpeed*
-                currentSpeedModifier*currentRunModifier*Time.deltaTime + Vector3.up * velocity.y,
+                currentSpeedModifier*currentRunModifier*Time.fixedDeltaTime + Vector3.up * velocity.y,
                 ref smoothVelocity,
                 0.4f);
-        }
 
-    }
+/*var horizontalVelocity = new Vector3(velocity.x, 0, velocity.z);
+if(horizontalVelocity.magnitude < movementConfig.MaxMoveSpeed)
+    game.PlayerEntity.Rigidbody.AddForce(game.PlayerEntity.transform.forward*movementConfig.MaxMoveSpeed*
+        currentSpeedModifier*currentRunModifier*Time.fixedDeltaTime, ForceMode.Force);*/
+}
+
+}
 }

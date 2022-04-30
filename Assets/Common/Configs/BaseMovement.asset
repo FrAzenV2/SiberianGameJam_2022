@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fc88ecc1be4bbd8fd8de33caf40b50, type: 3}
   m_Name: BaseMovement
   m_EditorClassIdentifier: 
-  <MaxMoveSpeed>k__BackingField: 10
-  <MovementAccelerationStep>k__BackingField: 0.55
-  <MaxRunCoefficient>k__BackingField: 3
+  <MaxMoveSpeed>k__BackingField: 500
+  <MovementAccelerationStep>k__BackingField: 2
+  <MaxRunCoefficient>k__BackingField: 2.5
   <RunCoefficientAccelerateStep>k__BackingField: 0.15
-  <RunCoefficientDecelerateStep>k__BackingField: 0.5
-  <TurnSpeed>k__BackingField: 90
+  <RunCoefficientDecelerateStep>k__BackingField: 1.5
+  <TurnSpeed>k__BackingField: 360
