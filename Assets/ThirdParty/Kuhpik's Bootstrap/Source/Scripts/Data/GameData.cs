@@ -3,7 +3,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
-using Components;
+using Common.Scripts.Components;
 
 namespace Kuhpik
 {
@@ -15,12 +15,12 @@ namespace Kuhpik
     {
         #region InputData
 
-        public Vector2 CurrentMovementInput { get; set; }
+        public Vector3 CurrentMovementInput { get; set; }
         public bool RunNextFrame { get; set; }
         public bool InteractNextFrame { get; set; }
 
         #endregion
         
-        public PlayerEnitityComponent PlayerEntity { get; set; }
+        public PlayerEntityComponent PlayerEntity { get; set; }
     }
 }
