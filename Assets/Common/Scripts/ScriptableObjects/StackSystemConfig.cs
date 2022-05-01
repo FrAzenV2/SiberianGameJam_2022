@@ -7,9 +7,9 @@ namespace Common.Scripts.ScriptableObjects
     public class StackSystemConfig : ScriptableObject
     {
         [field: SerializeField] public int MaxObjects { get; private set; } = 6;
-        [field: SerializeField] public float OffsetStep { get; private set; }= 0.2f;
-        [field: SerializeField] public float SpaceBetweenItems{ get; private set; } = 0.1f;
-        [field: SerializeField] public float StackMovementSpeed { get; private set; }= 0.4f;
+        [field: SerializeField] public float OffsetStep { get; private set; } = 0.2f;
+        [field: SerializeField] public float SpaceBetweenItems { get; private set; } = 0.1f;
+        [field: SerializeField] public float StackMovementSpeed { get; private set; } = 0.4f;
         [field: SerializeField] public ItemEntityComponent DefaultItem { get; private set; }
         [field: SerializeField] public float PreviousForwardUpdateRate { get; private set; } = .3f;
     }

@@ -7,7 +7,7 @@ namespace Common.Scripts.Systems.PlayerSystems
 {
     public class PlayerMovementSystem : GameSystem
     {
-        
+
 
         private const float GravityStanding = -0.5f;
         private const float GravityFalling = -10;
@@ -78,7 +78,7 @@ namespace Common.Scripts.Systems.PlayerSystems
 
             var currentDeltaRotation = Quaternion.RotateTowards(game.PlayerEntity.transform.rotation, toRotation,
                 movementConfig.TurnSpeed * Time.deltaTime);
-            
+
             game.CurrentDeltaRotationEulers = currentDeltaRotation.eulerAngles;
 
             game.PlayerEntity.transform.rotation = currentDeltaRotation;
