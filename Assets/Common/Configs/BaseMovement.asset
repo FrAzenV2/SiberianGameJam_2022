@@ -17,4 +17,4 @@ MonoBehaviour:
   <MaxRunCoefficient>k__BackingField: 3
   <RunCoefficientAccelerateStep>k__BackingField: 0.15
   <RunCoefficientDecelerateStep>k__BackingField: 1.5
-  <TurnSpeed>k__BackingField: 720
+  <TurnSpeed>k__BackingField: 180

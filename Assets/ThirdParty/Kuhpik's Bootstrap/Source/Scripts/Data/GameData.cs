@@ -33,7 +33,16 @@ namespace Kuhpik
         
         #endregion
 
-        public List<ItemEntityComponent> StackList = new List<ItemEntityComponent>();
+        #region StackData
+
+        public readonly List<ItemEntityComponent> StackList = new List<ItemEntityComponent>();
+        public int CurrentStackMax => DefaultStackMax + AdditionalStacks;
+        public int DefaultStackMax { get; set; }
+        public int AdditionalStacks { get; set; }
+
+        #endregion
+        
+        
         public PlayerEntityComponent PlayerEntity { get; set; }
         
     }
