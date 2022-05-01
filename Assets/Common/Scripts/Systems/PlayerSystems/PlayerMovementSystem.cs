@@ -6,6 +6,10 @@ namespace Common.Scripts.Systems
 {
     public class PlayerMovementSystem : GameSystem
     {
+
+        private const float GRAVITY_STANDING = -0.5f;
+        private const float GRAVITY_FALLING = -10;
+        
         private Camera playerCamera;
         private MovementConfig movementConfig;
             
@@ -24,12 +28,8 @@ namespace Common.Scripts.Systems
             Accelerate();
             TryAddRunDash();
             Rotate();
-            
-        }
-
-        public override void OnFixedUpdate()
-        {
             Move();
+            SimulateGravity();
         }
 
         private void Accelerate()
@@ -61,7 +61,6 @@ namespace Common.Scripts.Systems
             
             var toRotation = Quaternion.LookRotation(game.CurrentMovementInput, Vector3.up);
 
-            
             var rotationEulerAngles = toRotation.eulerAngles;
             rotationEulerAngles.y += playerCamera.transform.eulerAngles.y;
             toRotation.eulerAngles = rotationEulerAngles;
@@ -72,31 +71,21 @@ namespace Common.Scripts.Systems
         
         private void Move()
         {
-            if (game.CurrentMovementInput == Vector3.zero)
-            {
-                var newVelocity = game.PlayerEntity.Rigidbody.velocity;
-                newVelocity = Vector3.Lerp(Vector3.zero, newVelocity, 0.9f);
-                
-                if (newVelocity.magnitude < 2f) newVelocity = Vector3.zero;
-                
-                newVelocity.y = game.PlayerEntity.Rigidbody.velocity.y;
+            if (game.CurrentMovementInput == Vector3.zero) return;
 
-                game.PlayerEntity.Rigidbody.velocity = newVelocity;
-                
-                return;
-            }
+            game.PlayerEntity.CharacterController.Move(game.PlayerEntity.transform.forward *
+                movementConfig.MaxMoveSpeed *
+                currentRunModifier *
+                currentSpeedModifier *
+                Time.deltaTime);
 
-            var velocity = game.PlayerEntity.Rigidbody.velocity;
-            game.PlayerEntity.Rigidbody.velocity = Vector3.SmoothDamp(velocity,
-                game.PlayerEntity.transform.forward*movementConfig.MaxMoveSpeed*
-                currentSpeedModifier*currentRunModifier*Time.fixedDeltaTime + Vector3.up * velocity.y,
-                ref smoothVelocity,
-                0.4f);
-            
-            /*var horizontalVelocity = new Vector3(velocity.x, 0, velocity.z);
-            if(horizontalVelocity.magnitude < movementConfig.MaxMoveSpeed)
-                game.PlayerEntity.Rigidbody.AddForce(game.PlayerEntity.transform.forward*movementConfig.MaxMoveSpeed*
-                    currentSpeedModifier*currentRunModifier*Time.fixedDeltaTime, ForceMode.Force);*/
+        }
+
+        private void SimulateGravity()
+        {
+            game.PlayerEntity.CharacterController.Move(Vector3.up *
+                (game.PlayerEntity.CharacterController.isGrounded ? GRAVITY_STANDING : GRAVITY_FALLING) *
+                Time.deltaTime);
         }
 
     }
