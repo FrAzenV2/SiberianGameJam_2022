@@ -1,5 +1,6 @@
-﻿using System.Linq;
-using Common.Scripts.Components;
+﻿using System.Collections;
+using System.Linq;
+using Common.Scripts.ScriptableObjects;
 using Kuhpik;
 using NaughtyAttributes;
 using UnityEngine;
@@ -8,11 +9,13 @@ namespace Common.Scripts.Systems
 {
     public class StackSystem : GameSystem
     {
-        [SerializeField] private float offsetStep = 0.2f;
-        [SerializeField] private float spaceBetweenItems = 0.1f;
-        [SerializeField] private float stackMovementSpeed = 0.4f;
+        private StackSystemConfig stackConfig;
+        private MovementConfig movementConfig;
 
-        [SerializeField] private ItemEntityComponent Item;
+        public override void OnInit()
+        {
+            StartCoroutine(UpdateForward());
+        }
         public override void OnUpdate()
         {
             MoveStacks();
@@ -21,9 +24,9 @@ namespace Common.Scripts.Systems
         [Button()]
         private void DebugSpawnItem()
         {
-            var newItemHeight = game.StackList.Sum(itemEntityComponent => itemEntityComponent.ItemConfig.ItemHeight + spaceBetweenItems);
+            var newItemHeight = game.StackList.Sum(itemEntityComponent => itemEntityComponent.ItemConfig.ItemHeight + stackConfig.SpaceBetweenItems);
 
-            var item = Instantiate(Item, game.PlayerEntity.StackingParent);
+            var item = Instantiate(stackConfig.DefaultItem, game.PlayerEntity.StackingParent);
             game.StackList.Add(item);
             item.transform.localPosition = Vector3.up*newItemHeight;
         }
@@ -33,18 +36,29 @@ namespace Common.Scripts.Systems
             if(game.StackList.Count < 2 ) return;
             
             var baseLocalPos = game.StackList[0].transform.localPosition;
-            //TODO change from hardcoded value to config paramenter;
-            var speedModifier = Mathf.InverseLerp(0,2.5f,game.CurrentSpeedPercentage);
-            var currentHeight = game.StackList[0].ItemConfig.ItemHeight + spaceBetweenItems;
+
+            var speedModifier = Mathf.InverseLerp(0,movementConfig.MaxRunCoefficient,game.CurrentSpeedPercentage);
+            var currentHeight = game.StackList[0].ItemConfig.ItemHeight + stackConfig.SpaceBetweenItems;
             for (var i = 1; i < game.StackList.Count; i++)
             {
                 var currentForward = game.StackList[i].transform.InverseTransformDirection(game.PreviousForward);
                 
                 var newLocalPos = Vector3.MoveTowards(game.StackList[i].transform.localPosition,
-                    baseLocalPos + Vector3.up*currentHeight - currentForward * (speedModifier*offsetStep*i),
-                    stackMovementSpeed*Time.deltaTime);
+                    baseLocalPos + Vector3.up*currentHeight - currentForward * (speedModifier*stackConfig.OffsetStep*i),
+                    stackConfig.StackMovementSpeed*Time.deltaTime);
                 game.StackList[i].transform.localPosition = newLocalPos;
-                currentHeight += game.StackList[i].ItemConfig.ItemHeight + spaceBetweenItems;
+                currentHeight += game.StackList[i].ItemConfig.ItemHeight + stackConfig.SpaceBetweenItems;
+            }
+        }
+        
+        
+        private IEnumerator UpdateForward()
+        {
+            var waitFor = new WaitForSeconds(stackConfig.PreviousForwardUpdateRate);
+            while (true)
+            {
+                game.PreviousForward = game.PlayerEntity.transform.forward;
+                yield return waitFor;
             }
         }
     }

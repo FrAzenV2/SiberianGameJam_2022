@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.65080994, g: 0.666729, b: 0.7075472, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.05
@@ -325,10 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4312c1ad31f8419aad8ea6e8a08c447b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetStep: 0.2
-  spaceBetweenItems: 0.04
-  stackMovementSpeed: 2
-  Item: {fileID: -8010124839795636866, guid: aa3c1bc2a22ad54448f05a3232639334, type: 3}
 --- !u!1 &727074031
 GameObject:
   m_ObjectHideFlags: 3
@@ -1060,6 +1056,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 637131041601089722, guid: 95f0aafcfce8537458ecd8d3616ebb9e, type: 3}
+      propertyPath: previousForwardUpdateRate
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95f0aafcfce8537458ecd8d3616ebb9e, type: 3}
 --- !u!4 &860305202337874310
@@ -1532,6 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   additionalInjections:
   - {fileID: 11400000, guid: cf644ebe4781deb43a182783a5dfd5d1, type: 2}
+  - {fileID: 11400000, guid: 0c91a2684d3592a4a9872d3570a7597d, type: 2}
 --- !u!114 &8001158538685108130
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using Common.Scripts.ScriptableObjects;
+﻿using System.Collections;
+using Common.Scripts.ScriptableObjects;
 using Kuhpik;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace Common.Scripts.Systems.PlayerSystems
 {
     public class PlayerMovementSystem : GameSystem
     {
+        
 
         private const float GravityStanding = -0.5f;
         private const float GravityFalling = -10;
@@ -33,6 +35,7 @@ namespace Common.Scripts.Systems.PlayerSystems
 
             UpdateCurrentData();
         }
+
         private void UpdateCurrentData()
         {
             var playerEntityTransform = game.PlayerEntity.transform;
@@ -77,8 +80,7 @@ namespace Common.Scripts.Systems.PlayerSystems
                 movementConfig.TurnSpeed * Time.deltaTime);
             
             game.CurrentDeltaRotationEulers = currentDeltaRotation.eulerAngles;
-            game.PreviousForward = game.PlayerEntity.transform.forward;
-            
+
             game.PlayerEntity.transform.rotation = currentDeltaRotation;
         }
 
