@@ -54,11 +54,11 @@ namespace Common.Scripts.Systems
         
         private IEnumerator UpdateForward()
         {
-            var waitFor = new WaitForSeconds(stackConfig.PreviousForwardUpdateRate);
             while (true)
             {
                 game.PreviousForward = game.PlayerEntity.transform.forward;
-                yield return waitFor;
+                //TODO optimize by drawing init of waitFor In start of Coroutine
+                yield return new WaitForSeconds(stackConfig.PreviousForwardUpdateRate);
             }
         }
     }
