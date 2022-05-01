@@ -20,7 +20,21 @@ namespace Kuhpik
         public bool InteractNextFrame { get; set; }
 
         #endregion
+
+        #region CurrentMovementData
+
+        public float CurrentSpeed { get;  set; }
+        public float CurrentSpeedPercentage { get; set; }
+        public Vector3 CurrentForward { get; set; }
+        public Vector3 PreviousForward { get; set; }
+        public Quaternion CurrentRotation { get;  set; }
+        public Vector3 CurrentDeltaRotationEulers { get;  set; }
         
+        
+        #endregion
+
+        public List<ItemEntityComponent> StackList = new List<ItemEntityComponent>();
         public PlayerEntityComponent PlayerEntity { get; set; }
+        
     }
 }

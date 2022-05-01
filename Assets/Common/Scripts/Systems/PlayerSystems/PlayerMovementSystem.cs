@@ -2,13 +2,13 @@
 using Kuhpik;
 using UnityEngine;
 
-namespace Common.Scripts.Systems
+namespace Common.Scripts.Systems.PlayerSystems
 {
     public class PlayerMovementSystem : GameSystem
     {
 
-        private const float GRAVITY_STANDING = -0.5f;
-        private const float GRAVITY_FALLING = -10;
+        private const float GravityStanding = -0.5f;
+        private const float GravityFalling = -10;
 
         private Camera playerCamera;
         private MovementConfig movementConfig;
@@ -30,6 +30,16 @@ namespace Common.Scripts.Systems
             Rotate();
             Move();
             SimulateGravity();
+
+            UpdateCurrentData();
+        }
+        private void UpdateCurrentData()
+        {
+            var playerEntityTransform = game.PlayerEntity.transform;
+            game.CurrentForward = playerEntityTransform.forward;
+            game.CurrentRotation = playerEntityTransform.rotation;
+            game.CurrentSpeed = movementConfig.MaxMoveSpeed * currentRunModifier * currentSpeedModifier;
+            game.CurrentSpeedPercentage = currentRunModifier * currentSpeedModifier;
         }
 
         private void Accelerate()
@@ -63,8 +73,13 @@ namespace Common.Scripts.Systems
             rotationEulerAngles.y += playerCamera.transform.eulerAngles.y;
             toRotation.eulerAngles = rotationEulerAngles;
 
-            game.PlayerEntity.transform.rotation = Quaternion.RotateTowards(game.PlayerEntity.transform.rotation, toRotation,
+            var currentDeltaRotation = Quaternion.RotateTowards(game.PlayerEntity.transform.rotation, toRotation,
                 movementConfig.TurnSpeed * Time.deltaTime);
+            
+            game.CurrentDeltaRotationEulers = currentDeltaRotation.eulerAngles;
+            game.PreviousForward = game.PlayerEntity.transform.forward;
+            
+            game.PlayerEntity.transform.rotation = currentDeltaRotation;
         }
 
         private void Move()
@@ -72,17 +87,17 @@ namespace Common.Scripts.Systems
             if (game.CurrentMovementInput == Vector3.zero) return;
 
             game.PlayerEntity.CharacterController.Move(game.PlayerEntity.transform.forward *
-                movementConfig.MaxMoveSpeed *
-                currentRunModifier *
-                currentSpeedModifier *
-                Time.deltaTime);
+                (movementConfig.MaxMoveSpeed *
+                    currentRunModifier *
+                    currentSpeedModifier *
+                    Time.deltaTime));
 
         }
 
         private void SimulateGravity()
         {
             game.PlayerEntity.CharacterController.Move(Vector3.up *
-                (game.PlayerEntity.CharacterController.isGrounded ? GRAVITY_STANDING : GRAVITY_FALLING) *
+                (game.PlayerEntity.CharacterController.isGrounded ? GravityStanding : GravityFalling) *
                 Time.deltaTime);
         }
 
