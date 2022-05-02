@@ -16,11 +16,11 @@ namespace Common.Scripts.UI
 
         private Transform currentTarget;
         private Camera playerCamera;
-        
+
         public override void Open()
         {
             base.Open();
-            
+
             playerCamera = Camera.main;
             SetTarget(Bootstrap.GameData.PlayerEntity.IndicatorPosition);
         }
@@ -30,23 +30,21 @@ namespace Common.Scripts.UI
             pickupProgressBar.fillAmount = timer / time;
         }
 
-        public void UpdateInventoryBar(int current,int max)
+        public void UpdateInventoryBar(int current, int max)
         {
             text.text = current + "|" + max;
-            
-            var percentage = (float) current / max;
+
+            var percentage = (float)current / max;
             inventoryBar.fillAmount = percentage;
-            
+
             var currentColor = Color.white;
-            
+
             foreach (var colorGrading in colors)
-            {
                 if (colorGrading.Percentage <= percentage)
                     currentColor = colorGrading.Color;
-            }
-            
+
             inventoryBar.color = currentColor;
-            if(isTextColorful)
+            if (isTextColorful)
                 text.color = currentColor;
         }
 
@@ -70,8 +68,8 @@ namespace Common.Scripts.UI
 
         private void LateUpdate()
         {
-            if(!currentTarget) return;
-            
+            if (!currentTarget) return;
+
             MoveIndicator(playerCamera.WorldToScreenPoint(currentTarget.position));
         }
     }

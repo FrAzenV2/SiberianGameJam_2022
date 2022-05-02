@@ -10,7 +10,7 @@ namespace Common.Scripts.ScriptableObjects
     {
         [field: SerializeField] public ItemType ItemType { get; private set; }
         [field: SerializeField] public ItemEntityComponent ItemPrefab { get; private set; }
-        [field: ShowAssetPreview][field: SerializeField] public Sprite ItemIcon { get; private set; }
+        [field: ShowAssetPreview] [field: SerializeField] public Sprite ItemIcon { get; private set; }
         [field: SerializeField] public float ItemHeight { get; private set; }
     }
 }
