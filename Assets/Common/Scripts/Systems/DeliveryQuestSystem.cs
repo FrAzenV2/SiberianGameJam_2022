@@ -4,6 +4,7 @@ using System.Linq;
 using Common.Scripts.Components;
 using Common.Scripts.Data;
 using Common.Scripts.ScriptableObjects;
+using Common.Scripts.UI;
 using Kuhpik;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,7 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace Common.Scripts.Systems
 {
-    public class DeliveryQuestSystem : GameSystem
+    public class DeliveryQuestSystem : GameSystemWithScreen<DeliveryQuestsScreen>
     {
         private DeliverySystemConfig deliverySystemConfig;
      
@@ -77,7 +78,8 @@ namespace Common.Scripts.Systems
             //TODO erase pointers for quests
             quest.Target.HighlightObject.SetActive(false);
             quest.Target.IsBusy = false;
-            Bootstrap.GetSystem<StackSystem>().RemoveItem(quest.Requirement.ItemType, quest.Requirement.Amount);
+            screen.RemoveQuest(quest);
+            Bootstrap.GetSystem<StackSystem>().RemoveItem(quest.Requirement.ItemConfig.ItemType, quest.Requirement.Amount);
         }
 
         #endregion
@@ -134,8 +136,11 @@ namespace Common.Scripts.Systems
 
             newTarget.IsBusy = true;
             newTarget.HighlightObject.SetActive(true);
-            //TODO add UI arrow to each quest
-            activeQuests.Add(new ActiveQuest(givenTime, givenTime, newTarget, requirement, reward));
+            
+            var newQuest = new ActiveQuest(givenTime, givenTime, newTarget, requirement, reward);
+            
+            screen.AddNewQuest(newQuest);
+            activeQuests.Add(newQuest);
         }
 
         private DeliveryRequirement GetDeliveryRequirement()
@@ -179,7 +184,7 @@ namespace Common.Scripts.Systems
 
         private void FinishQuest(ActiveQuest quest)
         {
-            if(!Bootstrap.GetSystem<StackSystem>().RemoveItem(quest.Requirement.ItemType,quest.Requirement.Amount)) return;
+            if(!Bootstrap.GetSystem<StackSystem>().RemoveItem(quest.Requirement.ItemConfig.ItemType,quest.Requirement.Amount)) return;
 
             player.Money += quest.Reward;
             
@@ -187,6 +192,7 @@ namespace Common.Scripts.Systems
             quest.Target.HighlightObject.SetActive(false);
             quest.Target.IsBusy = false;
             activeQuests.Remove(quest);
+            screen.RemoveQuest(quest);
         }
 
         #endregion
