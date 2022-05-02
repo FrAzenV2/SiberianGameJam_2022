@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc080bf4eec40e28bd49e46f22aa1df, type: 3}
   m_Name: Default Delivery Requirement
   m_EditorClassIdentifier: 
-  <ItemType>k__BackingField: 0
+  <ItemConfig>k__BackingField: {fileID: 11400000, guid: 0c047a943a4ef7c41af5fd9761fc89fd, type: 2}
   <Amount>k__BackingField: 1
