@@ -17,4 +17,4 @@ MonoBehaviour:
   <SpaceBetweenItems>k__BackingField: 0.05
   <StackMovementSpeed>k__BackingField: 1.5
   <DefaultItem>k__BackingField: {fileID: -8010124839795636866, guid: aa3c1bc2a22ad54448f05a3232639334, type: 3}
-  <PreviousForwardUpdateRate>k__BackingField: 0.4
+  <PreviousForwardUpdateRate>k__BackingField: 0.3

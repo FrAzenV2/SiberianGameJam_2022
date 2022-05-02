@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2213280132683425858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3943944956040715321}
+  m_Layer: 0
+  m_Name: IndicatorPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3943944956040715321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2213280132683425858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5572572131776432914}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2740399404649747102
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,9 +612,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5572572131776432914}
+  - component: {fileID: 5572572131776432912}
   - component: {fileID: 5572572131776432915}
   - component: {fileID: 5572572131776432913}
-  - component: {fileID: 5572572131776432912}
   m_Layer: 0
   m_Name: '[Player]'
   m_TagString: Untagged
@@ -605,10 +635,28 @@ Transform:
   m_Children:
   - {fileID: 5572572131620643298}
   - {fileID: 2431870159644602480}
+  - {fileID: 3943944956040715321}
   - {fileID: 4408805627967227380}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5572572131776432912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572572131776432917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a15a6a23894f36a9649ae10afdd4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Rigidbody>k__BackingField: {fileID: 5572572131776432915}
+  <CharacterController>k__BackingField: {fileID: 5572572131776432913}
+  <StackingParent>k__BackingField: {fileID: 2431870159644602480}
+  <IndicatorPosition>k__BackingField: {fileID: 3943944956040715321}
+  <InteractionTrigger>k__BackingField: {fileID: 2138499333052715997}
 --- !u!54 &5572572131776432915
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -643,22 +691,6 @@ CharacterController:
   m_SkinWidth: 0.005
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.16, z: 0}
---- !u!114 &5572572131776432912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5572572131776432917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a15a6a23894f36a9649ae10afdd4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Rigidbody>k__BackingField: {fileID: 5572572131776432915}
-  <CharacterController>k__BackingField: {fileID: 5572572131776432913}
-  <StackingParent>k__BackingField: {fileID: 2431870159644602480}
-  <InteractionTrigger>k__BackingField: {fileID: 2138499333052715997}
 --- !u!1 &5572572131957219610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,5 +1036,5 @@ Transform:
   m_Children:
   - {fileID: 357515007378834958}
   m_Father: {fileID: 5572572131776432914}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

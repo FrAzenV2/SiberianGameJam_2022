@@ -14,9 +14,11 @@ namespace Common.Scripts.Systems
 
         public override void OnInit()
         {
+            game.DefaultStackMax = stackConfig.MaxObjects;
             StartCoroutine(UpdateForward());
         }
-        public override void OnUpdate()
+        
+        public override void OnFixedUpdate()
         {
             MoveStacks();
         }
