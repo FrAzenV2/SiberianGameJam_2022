@@ -12,13 +12,13 @@ namespace Common.Scripts.UI.Components
         [SerializeField] private ItemIconComponent itemIconPrefab;
         [SerializeField] private ColorGrading[] colorGradings;
 
-        public Color Color;
+        public Color color;
         public void Init(Sprite itemIcon, int amount, Color backgroundColor)
         {
             var item = Instantiate(itemIconPrefab, itemsParent);
             item.Init(itemIcon,amount);
-            Color = backgroundColor;
-            backgroundImage.color = backgroundColor == null ? Color.white : backgroundColor;
+            color = backgroundColor;
+            backgroundImage.color = backgroundColor;
             timerBar.fillAmount = 1;
         }
         

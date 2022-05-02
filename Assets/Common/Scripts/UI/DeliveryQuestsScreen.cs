@@ -11,7 +11,7 @@ namespace Common.Scripts.UI
     public class DeliveryQuestsScreen : UIScreen
     {
         [SerializeField] private Transform questsParent;
-        [SerializeField] private Transform arrowsParent;
+        [SerializeField] private PointersLogicComponent pointersParent;
         [SerializeField] private QuestStatusPanel questStatusPanelPrefab;
 
         [SerializeField] private Color[] questColors;
@@ -31,6 +31,7 @@ namespace Common.Scripts.UI
             var newStatusPanel = Instantiate(questStatusPanelPrefab, questsParent);
             newStatusPanel.Init(activeQuest.Requirement.ItemConfig.ItemIcon, activeQuest.Requirement.Amount,questColor);
             
+            pointersParent.AddPointer(activeQuest.Target.PointerPosition, questColor);
             questStatusPanels.Add(activeQuest,newStatusPanel);
             
             availableColors.Remove(questColor);
@@ -40,7 +41,8 @@ namespace Common.Scripts.UI
         {
             var questPanel = questStatusPanels[activeQuest];
             questStatusPanels.Remove(activeQuest);
-            availableColors.Add(questPanel.Color);
+            pointersParent.RemovePointer(activeQuest.Target.PointerPosition);
+            availableColors.Add(questPanel.color);
             
             Destroy(questPanel.gameObject);
         }
