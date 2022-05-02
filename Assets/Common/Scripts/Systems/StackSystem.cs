@@ -56,6 +56,7 @@ namespace Common.Scripts.Systems
                 Destroy(item.gameObject);
             }
 
+            screen.UpdateInventoryBar(game.StackList.Count, game.CurrentStackMax);
             return true;
         }
         
