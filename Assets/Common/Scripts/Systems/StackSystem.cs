@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Linq;
 using Common.Scripts.ScriptableObjects;
+using Common.Scripts.UI;
 using Kuhpik;
 using NaughtyAttributes;
 using UnityEngine;
 
 namespace Common.Scripts.Systems
 {
-    public class StackSystem : GameSystem
+    public class StackSystem : GameSystemWithScreen<StackSystemScreen>
     {
         private StackSystemConfig stackConfig;
         private MovementConfig movementConfig;
@@ -16,11 +17,24 @@ namespace Common.Scripts.Systems
         {
             game.DefaultStackMax = stackConfig.MaxObjects;
             StartCoroutine(UpdateForward());
+            
+            screen.UpdateInventoryBar(game.StackList.Count, game.CurrentStackMax);
         }
 
         public override void OnFixedUpdate()
         {
             MoveStacks();
+        }
+
+        public void AddItem(ItemConfig itemConfig)
+        {
+            var newItemHeight = game.StackList.Sum(itemEntityComponent => itemEntityComponent.ItemConfig.ItemHeight + stackConfig.SpaceBetweenItems);
+
+            var item = Instantiate(itemConfig.ItemPrefab, game.PlayerEntity.StackingParent);
+
+            game.StackList.Add(item);
+            item.transform.localPosition = Vector3.up * newItemHeight;
+            screen.UpdateInventoryBar(game.StackList.Count, game.CurrentStackMax);
         }
 
         [Button()]

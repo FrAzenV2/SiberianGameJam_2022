@@ -11,15 +11,12 @@ namespace Common.Scripts.Systems
 {
     public class ItemDispenserSystem : GameSystemWithScreen<DispenserSystemScreen>
     {
-        private StackSystemConfig stackSystemConfig;
         private bool isDispensing;
         private Coroutine currentRoutine;
         public override void OnInit()
         {
             game.PlayerEntity.InteractionTrigger.OnTriggerEntered += OnTryToInteract;
             game.PlayerEntity.InteractionTrigger.OnTriggerExited += OnTryToStopInteraction;
-
-            screen.UpdateInventoryBar(game.StackList.Count, game.CurrentStackMax);
         }
 
         private void OnDisable()
@@ -61,8 +58,7 @@ namespace Common.Scripts.Systems
             while (game.StackList.Count < game.CurrentStackMax)
             {
                 yield return DispensingProcess(dispenser.DispenseRate);
-                SpawnNewItem(dispenser.ItemConfig);
-                screen.UpdateInventoryBar(game.StackList.Count, game.CurrentStackMax);
+                Bootstrap.GetSystem<StackSystem>().AddItem(dispenser.ItemConfig);
             }
 
             screen.HideIndicator();
@@ -79,17 +75,6 @@ namespace Common.Scripts.Systems
                 yield return null;
             }
         }
-
-        private ItemEntityComponent SpawnNewItem(ItemConfig itemConfig)
-        {
-            var newItemHeight = game.StackList.Sum(itemEntityComponent => itemEntityComponent.ItemConfig.ItemHeight + stackSystemConfig.SpaceBetweenItems);
-
-            var item = Instantiate(itemConfig.ItemPrefab, game.PlayerEntity.StackingParent);
-
-            game.StackList.Add(item);
-            item.transform.localPosition = Vector3.up * newItemHeight;
-
-            return item;
-        }
+        
     }
 }
