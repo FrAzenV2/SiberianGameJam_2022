@@ -8,11 +8,8 @@ namespace Common.Scripts.UI
 {
     public class DispenserSystemScreen : UIScreen
     {
-        [SerializeField] private TMP_Text text;
-        [SerializeField] private bool isTextColorful = true;
         [SerializeField] private Image pickupProgressBar;
-        [SerializeField] private Image inventoryBar;
-        [SerializeField] private ColorGrading[] colors;
+        
 
         private Transform currentTarget;
         private Camera playerCamera;
@@ -28,24 +25,6 @@ namespace Common.Scripts.UI
         public void UpdateDispensingProcess(float timer, float time)
         {
             pickupProgressBar.fillAmount = timer / time;
-        }
-
-        public void UpdateInventoryBar(int current, int max)
-        {
-            text.text = current + "|" + max;
-
-            var percentage = (float)current / max;
-            inventoryBar.fillAmount = percentage;
-
-            var currentColor = Color.white;
-
-            foreach (var colorGrading in colors)
-                if (colorGrading.Percentage <= percentage)
-                    currentColor = colorGrading.Color;
-
-            inventoryBar.color = currentColor;
-            if (isTextColorful)
-                text.color = currentColor;
         }
 
         private void SetTarget(Transform target)
