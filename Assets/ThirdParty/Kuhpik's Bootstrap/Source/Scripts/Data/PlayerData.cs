@@ -15,5 +15,17 @@ namespace Kuhpik
         // Example (I use public fields for data, but u free to use properties\methods etc)
         // [BoxGroup("level")] public int level;
         // [BoxGroup("currency")] public int money;
+
+        public event Action MoneyChanged;
+        public float Money
+        {
+            get => money;
+            set
+            {
+                money = value;
+                MoneyChanged?.Invoke();
+            }
+        }
+        [SerializeField] private float money = 0;
     }
 }

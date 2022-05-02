@@ -4,6 +4,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using Common.Scripts.Components;
+using Common.Scripts.Enums;
 
 namespace Kuhpik
 {
@@ -34,6 +35,8 @@ namespace Kuhpik
         #endregion
 
         #region StackData
+
+        public readonly Dictionary<ItemType, int> StackItems = new Dictionary<ItemType, int>();
 
         public readonly List<ItemEntityComponent> StackList = new List<ItemEntityComponent>();
         public int CurrentStackMax => DefaultStackMax + AdditionalStacks;

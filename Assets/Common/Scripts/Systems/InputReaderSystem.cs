@@ -14,12 +14,15 @@ namespace Common.Scripts.Systems
 
         public void OnRun(InputAction.CallbackContext context)
         {
-            game.RunNextFrame = true;
+            if(context.performed)
+                game.RunNextFrame = true;
         }
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            game.InteractNextFrame = true;
+            if(context.performed)
+                game.InteractNextFrame = true;
         }
+        
     }
 }

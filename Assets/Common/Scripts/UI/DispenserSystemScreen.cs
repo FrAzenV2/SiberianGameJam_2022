@@ -10,7 +10,6 @@ namespace Common.Scripts.UI
     {
         [SerializeField] private Image pickupProgressBar;
         
-
         private Transform currentTarget;
         private Camera playerCamera;
 

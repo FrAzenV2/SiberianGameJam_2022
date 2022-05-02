@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using Common.Scripts.Enums;
 using Common.Scripts.ScriptableObjects;
 using Common.Scripts.UI;
 using Kuhpik;
@@ -32,10 +33,33 @@ namespace Common.Scripts.Systems
 
             var item = Instantiate(itemConfig.ItemPrefab, game.PlayerEntity.StackingParent);
 
+            var itemType = item.ItemConfig.ItemType;
+            if (!game.StackItems.ContainsKey(itemType))
+                game.StackItems[itemType] = 0;
+            game.StackItems[itemType]++;
+            
             game.StackList.Add(item);
             item.transform.localPosition = Vector3.up * newItemHeight;
             screen.UpdateInventoryBar(game.StackList.Count, game.CurrentStackMax);
         }
+
+        public bool RemoveItem(ItemType itemType, int amount = 1)
+        {
+            if (game.StackItems[itemType] < amount) return false;
+
+            game.StackItems[itemType] -= amount;
+
+            for (var i = 0; i < amount; i++)
+            {
+                var item = game.StackList.FindLast(item => item.ItemConfig.ItemType == itemType);
+                game.StackList.Remove(item);
+                Destroy(item.gameObject);
+            }
+
+            return true;
+        }
+        
+        
 
         [Button()]
         private void DebugSpawnItem()
