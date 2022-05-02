@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bbd3d50a3d5416eb79950e11ec5a51c, type: 3}
+  m_Name: Default Delivery Config
+  m_EditorClassIdentifier: 
+  <MaxQuests>k__BackingField: 3
+  <SecondsPerMeter>k__BackingField: 1.4
+  <RewardPerMeter>k__BackingField: 0.1
+  <DeliveryRequirements>k__BackingField:
+  - {fileID: 11400000, guid: 40fbfd30b16d9374fa4ceb66beec3781, type: 2}
