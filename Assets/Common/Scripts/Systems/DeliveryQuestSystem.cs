@@ -13,7 +13,7 @@ namespace Common.Scripts.Systems
 {
     public class DeliveryQuestSystem : GameSystem
     {
-        private DeliverySystemConfig config;
+        private DeliverySystemConfig deliverySystemConfig;
      
         private bool isPlayerInZone;
         
@@ -103,7 +103,7 @@ namespace Common.Scripts.Systems
         private void CheckIfPlayerWantAcceptQuest()
         {
             if (!(isPlayerInZone && game.InteractNextFrame)) return;
-            if (activeQuests.Count >= config.MaxQuests) return;
+            if (activeQuests.Count >= deliverySystemConfig.MaxQuests) return;
 
             game.InteractNextFrame = false;
             TryStartNewDelivery();
@@ -128,8 +128,8 @@ namespace Common.Scripts.Systems
             }
 
             var distance = CalculatePathDistance(path);
-            var givenTime = distance * config.SecondsPerMeter;
-            var reward = distance * config.RewardPerMeter;
+            var givenTime = distance * deliverySystemConfig.SecondsPerMeter;
+            var reward = distance * deliverySystemConfig.RewardPerMeter;
             var requirement = GetDeliveryRequirement();
 
             newTarget.IsBusy = true;
@@ -141,7 +141,7 @@ namespace Common.Scripts.Systems
         private DeliveryRequirement GetDeliveryRequirement()
         {
             //TODO maybe add some logic for more favourite quests;
-            return config.DeliveryRequirements[Random.Range(0, config.DeliveryRequirements.Length)];
+            return deliverySystemConfig.DeliveryRequirements[Random.Range(0, deliverySystemConfig.DeliveryRequirements.Length)];
         }
         private DeliveryPointComponent GetFreeDeliveryPoint()
         {

@@ -7,7 +7,7 @@ namespace Common.Scripts.Systems
         public override void OnUpdate()
         {
             game.InteractNextFrame = false;
-            game.RunNextFrame = false;
+            //game.RunNextFrame = false;
         }
     }
 }
