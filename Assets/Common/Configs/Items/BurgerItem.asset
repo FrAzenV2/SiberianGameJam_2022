@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BurgerItem
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 2
-  <ItemPrefab>k__BackingField: {fileID: -8010124839795636866, guid: aa3c1bc2a22ad54448f05a3232639334, type: 3}
+  <ItemPrefab>k__BackingField: {fileID: -8010124839795636866, guid: 0ab07c5b81349a145b4b3fc8f9bd5c82, type: 3}
   <ItemIcon>k__BackingField: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   <ItemHeight>k__BackingField: 0.3
