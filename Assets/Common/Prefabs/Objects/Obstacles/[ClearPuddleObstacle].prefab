@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 57838479e0cfab548911bb4793721782, type: 2}
     - target: {fileID: 5841747235160413384, guid: e0f96dd75205dd04798810e313135635, type: 3}
       propertyPath: m_Name
-      value: '[PuddleObstacle]'
+      value: '[ClearPuddleObstacle]'
       objectReference: {fileID: 0}
     - target: {fileID: 5841747235160413385, guid: e0f96dd75205dd04798810e313135635, type: 3}
       propertyPath: m_RootOrder

@@ -24,12 +24,21 @@ namespace Common.Scripts.Systems
 
             if(obj.CompareTag("Chaser"))
                 TakeDamageFromChaser(obj);
+            
+            if (obj.CompareTag("SpeedObstacle"))
+                TakeDamageFromBump();
         }
-        
+        private void TakeDamageFromBump()
+        {
+            if(game.CurrentSpeed < systemConfig.SpeedToTakeBumpDamage) return;
+            
+            Bootstrap.GetSystem<StackSystem>().ReleaseItems(systemConfig.LoseItemsOnBump);
+        }
+
         private void TakeDamageFromChaser(GameObject obj)
         {
             obj.GetComponent<ChaserEntityComponent>().StartSelfDestruction();
-            Bootstrap.GetSystem<StackSystem>().ReleaseItems(systemConfig.LoseItemsAmount);
+            Bootstrap.GetSystem<StackSystem>().ReleaseItems(systemConfig.LoseItemsAmountOnCatch);
         }
     }
 }
