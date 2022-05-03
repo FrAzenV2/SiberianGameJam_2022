@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815d7f82e1c547be83525914af08aeca, type: 3}
   m_Name: New Upgrade System Config
   m_EditorClassIdentifier: 
-  <SpeedUpgradeConfig>k__BackingField: {fileID: 0}
-  <TurnUpgradeConfig>k__BackingField: {fileID: 0}
-  <RewardUpgradeConfig>k__BackingField: {fileID: 0}
+  <SpeedUpgradeConfig>k__BackingField: {fileID: 11400000, guid: 48f22d21a423d334ab693acd08595bf7, type: 2}
+  <TurnUpgradeConfig>k__BackingField: {fileID: 11400000, guid: b813a2b3e56ad394e95b784050822b00, type: 2}
+  <RewardUpgradeConfig>k__BackingField: {fileID: 11400000, guid: 83677af9ea9cbfe40a5ec4cd652c1043, type: 2}
