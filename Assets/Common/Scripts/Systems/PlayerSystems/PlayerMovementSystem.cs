@@ -88,10 +88,13 @@ namespace Common.Scripts.Systems.PlayerSystems
         {
             if (game.CurrentMovementInput == Vector3.zero) return;
 
+            var stacksSlowingEffect = 1 - movementConfig.SlowingPerItem * game.StackList.Count;
+            
             game.PlayerEntity.CharacterController.Move(game.PlayerEntity.transform.forward *
                 (movementConfig.MaxMoveSpeed *
                     currentRunModifier *
                     currentSpeedModifier *
+                    stacksSlowingEffect *
                     Time.deltaTime));
 
         }
