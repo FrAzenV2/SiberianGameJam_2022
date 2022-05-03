@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using Common.Scripts.Components;
 using Common.Scripts.Enums;
 using Common.Scripts.ScriptableObjects;
 using Common.Scripts.UI;
@@ -92,7 +94,6 @@ namespace Common.Scripts.Systems
             }
         }
 
-
         private IEnumerator UpdateForward()
         {
             while (true)
@@ -101,6 +102,35 @@ namespace Common.Scripts.Systems
                 //TODO optimize by drawing init of waitFor In start of Coroutine
                 yield return new WaitForSeconds(stackConfig.PreviousForwardUpdateRate);
             }
+        }
+        
+        public void ReleaseItems(int amount)
+        {
+            if(game.StackList.Count == 0 ) return;
+            
+            
+            amount = Mathf.Min(amount, game.StackList.Count);
+            
+            var lostItems = new List<ItemEntityComponent>();
+
+            for (int i = 1; i <= amount; i++)
+            {
+                lostItems.Add(game.StackList[game.StackList.Count-i]);
+            }
+            
+            foreach (var item in lostItems)
+            {
+                game.StackItems[item.ItemConfig.ItemType]--;
+                game.StackList.Remove(item);
+                item.transform.SetParent(null);
+                var rb = item.GetComponent<Rigidbody>();
+                rb.isKinematic = false;
+                rb.AddForce(game.CurrentSpeed* 10 * (-game.CurrentForward));
+                item.StartSelfDestruction();
+            }
+            
+            screen.UpdateInventoryBar(game.StackList.Count, game.CurrentStackMax);
+
         }
     }
 }

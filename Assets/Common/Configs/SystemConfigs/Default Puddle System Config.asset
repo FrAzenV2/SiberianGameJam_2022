@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95193e8b79ee435a89921a4812d61bfd, type: 3}
+  m_Name: Default Puddle System Config
+  m_EditorClassIdentifier: 
+  <DirtResetTime>k__BackingField: 15
+  <ChasersSpeed>k__BackingField: 10
+  <ChasersAmount>k__BackingField: 2
+  <ChaserPrefab>k__BackingField: {fileID: 7869033081916371295, guid: 5d1ab23954be89a498876d7aa2e02646, type: 3}

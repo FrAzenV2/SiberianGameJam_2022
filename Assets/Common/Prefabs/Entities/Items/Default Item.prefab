@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ItemConfig>k__BackingField: {fileID: 11400000, guid: 0c047a943a4ef7c41af5fd9761fc89fd, type: 2}
+  <Renderer>k__BackingField: {fileID: 1776421376252624061}
 --- !u!54 &3191861324450414209
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
 
 namespace Common.Scripts.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "New Delivery System Config", menuName = "Configs/Delivery Config", order = 0)]
+    [CreateAssetMenu(fileName = "New Delivery System Config", menuName = "Configs/Systems/Delivery Config", order = 0)]
     public class DeliverySystemConfig : ScriptableObject
     {
         [field: SerializeField] public int MaxQuests { get; private set; } = 3;

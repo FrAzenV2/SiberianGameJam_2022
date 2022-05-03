@@ -45,7 +45,10 @@ namespace Kuhpik
 
         #endregion
         
-        
+        public bool IsDirty { get; set; }
+
+        public List<ChaserEntityComponent> ActiveChasers { get; set; } = new List<ChaserEntityComponent>();
+
         public PlayerEntityComponent PlayerEntity { get; set; }
         
     }

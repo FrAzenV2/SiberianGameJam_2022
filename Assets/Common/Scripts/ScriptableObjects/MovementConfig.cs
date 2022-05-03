@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Common.Scripts.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "New Movement Config", menuName = "Configs/Movement Config", order = 0)]
+    [CreateAssetMenu(fileName = "New Movement Config", menuName = "Configs/Systems/Movement Config", order = 0)]
     public class MovementConfig : ScriptableObject
     {
         [field: SerializeField] public float MaxMoveSpeed { get; private set; } = 10;

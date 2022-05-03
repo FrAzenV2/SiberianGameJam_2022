@@ -9,5 +9,8 @@ namespace Common.Scripts.Components
         [field: SerializeField] public Transform StackingParent { get; private set; }
         [field: SerializeField] public Transform IndicatorPosition { get; private set; }
         [field: SerializeField] public TriggerListenerComponent InteractionTrigger { get; private set; }
-    }
+        [field: SerializeField] public TriggerListenerComponent PuddleTrigger { get; private set; }
+        
+        [field: SerializeField] public TriggerListenerComponent TakeDamageTrigger { get; private set; }
+    } 
 }

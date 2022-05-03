@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Common.Scripts.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "New Stack System Config", menuName = "Configs/Stack system", order = 0)]
+    [CreateAssetMenu(fileName = "New Stack System Config", menuName = "Configs/Systems/Stack system", order = 0)]
     public class StackSystemConfig : ScriptableObject
     {
         [field: SerializeField] public int MaxObjects { get; private set; } = 6;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Common.Scripts.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "New ItemConfig", menuName = "Configs/Item config", order = 0)]
+    [CreateAssetMenu(fileName = "New ItemConfig", menuName = "Configs/Items/Item config", order = 0)]
     public class ItemConfig : ScriptableObject
     {
         [field: SerializeField] public ItemType ItemType { get; private set; }
