@@ -15,7 +15,6 @@ namespace Common.Scripts.Systems.ObstacleSystems
 
         private float timer;
         
-        private Coroutine chasersUpdateCoroutine;
         private Coroutine dirtRemoveCoroutine;
 
         public override void OnStateEnter()
