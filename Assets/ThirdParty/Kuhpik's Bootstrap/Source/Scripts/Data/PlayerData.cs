@@ -3,6 +3,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using Common.Scripts.ScriptableObjects.UpgradeConfigs;
 
 namespace Kuhpik
 {
@@ -27,5 +28,13 @@ namespace Kuhpik
             }
         }
         [SerializeField] private float money = 0;
+
+        [SerializeField] public int CurrentSpeedLevel = 0;
+        [SerializeField] public UpgradeData CurrentSpeedUpgradeData;
+        [SerializeField] public int CurrentTurnLevel = 0;
+        [SerializeField] public UpgradeData CurrentTurnUpgradeData;
+        [SerializeField] public int CurrentRewardLevel = 0;
+        [SerializeField] public UpgradeData CurrentRewardUpgradeData;
+
     }
 }

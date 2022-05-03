@@ -186,7 +186,7 @@ namespace Common.Scripts.Systems
         {
             if(!Bootstrap.GetSystem<StackSystem>().RemoveItem(quest.Requirement.ItemConfig.ItemType,quest.Requirement.Amount)) return;
 
-            player.Money += quest.Reward;
+            player.Money += quest.Reward * player.CurrentRewardUpgradeData.Value;
             
             //TODO add disabling of arrows
             quest.Target.HighlightObject.SetActive(false);

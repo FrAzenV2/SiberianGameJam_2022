@@ -47,7 +47,7 @@ namespace Common.Scripts.Systems.PlayerSystems
 
         private void Accelerate()
         {
-            currentSpeedModifier = Mathf.Clamp01(currentSpeedModifier + movementConfig.MovementAccelerationStep * Time.deltaTime);
+            currentSpeedModifier = Mathf.Clamp01(currentSpeedModifier + movementConfig.MovementAccelerationStep * Time.deltaTime) * player.CurrentSpeedUpgradeData.Value;
             if (game.CurrentMovementInput == Vector3.zero)
                 currentSpeedModifier = 0;
         }
@@ -77,7 +77,7 @@ namespace Common.Scripts.Systems.PlayerSystems
             toRotation.eulerAngles = rotationEulerAngles;
 
             var currentDeltaRotation = Quaternion.RotateTowards(game.PlayerEntity.transform.rotation, toRotation,
-                movementConfig.TurnSpeed * Time.deltaTime);
+                player.CurrentTurnUpgradeData.Value*movementConfig.TurnSpeed * Time.deltaTime);
 
             game.CurrentDeltaRotationEulers = currentDeltaRotation.eulerAngles;
 
