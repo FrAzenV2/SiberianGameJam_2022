@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Common.Scripts.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "New Delivery Requirement", menuName = "Configs/Delivery Requirement", order = 0)]
+    [CreateAssetMenu(fileName = "New Delivery Requirement", menuName = "Configs/Quests/Delivery Requirement", order = 0)]
     public class DeliveryRequirement : ScriptableObject
     {
         [field: SerializeField] public ItemConfig ItemConfig { get; private set; }

@@ -66,9 +66,11 @@
      <Compile Include="Assets\Common\Scripts\Systems\ItemDispenserSystem.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\PrefabModificationType.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\Formatters\ColorBlockFormatter.cs" />
+     <Compile Include="Assets\Common\Scripts\UI\Components\QuestStatusPanel.cs" />
      <Compile Include="Assets\Common\Scripts\Enums\ItemType.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\SerializedUnityObjects\SerializedMonoBehaviour.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Serializers\DecimalSerializer.cs" />
+     <Compile Include="Assets\Common\Scripts\ScriptableObjects\DeliveryRequirement.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Utilities\Extensions\MethodInfoExtensions.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\UIManager.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Formatters\ListFormatter.cs" />
@@ -76,6 +78,7 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\MonoBehaviours\CollisionListener.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Formatters\DictionaryFormatter.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\Formatters\ColorFormatter.cs" />
+     <Compile Include="Assets\Common\Scripts\Systems\DataResetSystem.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Game State\GameState.LifeCycle.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Utilities\Misc\MemberAliasMethodInfo.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Utilities\Extensions\TypeExtensions.cs" />
@@ -120,8 +123,10 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\FormatterLocators\TypeFormatterLocator.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\DataReaderWriters\Json\JsonConfig.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\ArchitectureInfo.cs" />
+     <Compile Include="Assets\Common\Scripts\Data\ActiveQuest.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Game State\GameState.Data.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\DataReaderWriters\SerializationNodes\SerializationNode.cs" />
+     <Compile Include="Assets\Common\Scripts\Components\DeliveryPointsContainer.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Snippets\Singleton\DontDestroySingleton.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\SerializationAbortException.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Formatters\NullableFormatter.cs" />
@@ -129,6 +134,7 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\ISerializationPolicy.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Serializers\UInt64Serializer.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\CustomSerializationPolicy.cs" />
+     <Compile Include="Assets\Common\Scripts\UI\DeliveryQuestsScreen.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Patterns\FSM\FSMProcessor.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Game System\GameSystem.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Utilities\Misc\UnsafeUtilities.cs" />
@@ -153,6 +159,7 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\DataReaderWriters\Json\JsonDataReader.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Extensions\SaveExtension.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Game State\GameState.cs" />
+     <Compile Include="Assets\Common\Scripts\UI\StackSystemScreen.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Bootstrap.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\SerializationConfig.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\CachedMemoryStream.cs" />
@@ -170,6 +177,7 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Game System\GameSystemWithScreen.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\AlwaysFormatsSelfAttribute.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\ISelfFormatter.cs" />
+     <Compile Include="Assets\Common\Scripts\Components\QuestGiverPointComponent.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\DefaultSerializationBinder.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\DictionaryKeySupport\Vector2DictionaryKeyPathProvider.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\IAskIfCanFormatTypes.cs" />
@@ -207,6 +215,7 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Snippets\Singleton\Singleton.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\CustomFormatterAttribute.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Serializers\Serializer.cs" />
+     <Compile Include="Assets\Common\Scripts\UI\Components\ItemIconComponent.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\SerializedUnityObjects\IOverridesSerializationPolicy.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\DefaultLoggers.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Utilities\Misc\DoubleLookupDictionary.cs" />
@@ -220,6 +229,7 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Formatters\TypeFormatter.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Formatters\KeyValuePairFormatter.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Abstracts\UIScreen.cs" />
+     <Compile Include="Assets\Common\Scripts\UI\Components\PointersLogicComponent.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Extensions\MathExtentions.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Formatters\StackFormatter.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Serializers\UInt32Serializer.cs" />
@@ -234,6 +244,7 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Misc\RegisterFormatterLocatorAttribute.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\FormatterLocators\IFormatterLocator.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Utilities\Extensions\PropertyInfoExtensions.cs" />
+     <Compile Include="Assets\Common\Scripts\Components\DeliveryPointComponent.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\DataReaderWriters\BaseDataReaderWriter.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Formatters\TimeSpanFormatter.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Serializers\CharSerializer.cs" />
@@ -255,6 +266,7 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\UnitySerializationInitializer.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\Formatters\Color32Formatter.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Serializers\Int16Serializer.cs" />
+     <Compile Include="Assets\Common\Scripts\ScriptableObjects\DeliverySystemConfig.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\SerializedUnityObjects\SerializedStateMachineBehaviour.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Formatters\QueueFormatter.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\Formatters\GradientColorKeyFormatter.cs" />
@@ -267,6 +279,7 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Serializers\Int64Serializer.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Utilities\Extensions\LinqExtensions.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Serializers\GuidSerializer.cs" />
+     <Compile Include="Assets\Common\Scripts\Systems\DeliveryQuestSystem.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\DictionaryKeySupport\BaseDictionaryKeyPathProvider.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\FormatterLocators\ArrayFormatterLocator.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Unity Integration\AOTSupportUtilities.cs" />
@@ -286,12 +299,9 @@
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Source\Scripts\Patterns\Command\Interfaces\ICommand.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\DataReaderWriters\SerializationNodes\SerializationNodeDataReader.cs" />
      <Compile Include="Assets\ThirdParty\Kuhpik&apos;s Bootstrap\Thirdparty\Sirenix.OdinSerializer\Core\Formatters\DerivedDictionaryFormatter.cs" />
-     <Compile Include="Assets\Common\Scripts\UI\StackSystemScreen.cs" />
-     <Compile Include="Assets\Common\Scripts\Components\DeliveryPointComponent.cs" />
-     <Compile Include="Assets\Common\Scripts\Components\DeliveryPointsContainer.cs" />
-     <Compile Include="Assets\Common\Scripts\Systems\DeliveryQuestSystem.cs" />
-     <Compile Include="Assets\Common\Scripts\ScriptableObjects\DeliverySystemConfig.cs" />
-     <Compile Include="Assets\Common\Scripts\ScriptableObjects\QuestRequirement.cs" />
+     <Compile Include="Assets\Common\Scripts\Components\PuddleEntityComponent.cs" />
+     <Compile Include="Assets\Common\Scripts\Systems\ObstacleSystems\PuddleSystem.cs" />
+     <Compile Include="Assets\Common\Scripts\ScriptableObjects\PuddleSystemConfig.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
