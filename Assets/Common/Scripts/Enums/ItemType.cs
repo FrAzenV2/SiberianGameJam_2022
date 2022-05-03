@@ -3,6 +3,7 @@
     public enum ItemType
     {
         Default,
-        Pizza
+        Pizza,
+        Burger
     }
 }
