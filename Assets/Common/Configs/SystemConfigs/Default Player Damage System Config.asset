@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68c77b716ad453dbf6f443321e7ab2b, type: 3}
   m_Name: Default Player Damage System Config
   m_EditorClassIdentifier: 
-  <LoseItemsAmount>k__BackingField: 1
+  <LoseItemsAmountOnCatch>k__BackingField: 1
+  <LoseItemsOnBump>k__BackingField: 1
+  <SpeedToTakeBumpDamage>k__BackingField: 7
